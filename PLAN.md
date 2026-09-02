@@ -116,6 +116,10 @@ Exit codes: 0 ok, 1 user error (bad date, no init), 2 IO/corrupt data (print whi
 - **Water-weight noise** — handled by the EMA; status labels confidence so master does not act on a 7-day number.
 - **Huel calorie truth** — Huel v3 Powder = 400 kcal per 2 scoops (90 g); Black Edition = 400 kcal per 2 scoops (90 g). Master counts everything else himself; the tool trusts the number.
 - **Seed TDEE** — Mifflin-St Jeor × 1.25 (sedentary desk job + one gym day). Used only until 7 real days exist; then the adaptive number replaces it.
-- **GitHub** — `Karce/tdee-tracker` (private). All numbers in this file and README are **illustrative placeholders**; master's real figures exist only inside `data/tdee.json.age`. Pre-push audit: `git ls-files | grep -v '\.age$' | xargs grep -l AGE-SECRET-KEY` must return nothing.
+- **GitHub** — `Karce/tdee-tracker` (PUBLIC). All numbers in this file and README are **illustrative placeholders**; master's real figures exist only inside `data/tdee.json.age`. Pre-push audit: `git ls-files | grep -v '\.age$' | xargs grep -l AGE-SECRET-KEY` must return nothing.
 - **Docker on sepulcher** — `docker.service` 29.6.2 enabled 2026-09-02, `thoth` in `docker` group, `@devcontainers/cli` 0.89.0 at `~/.local/bin/devcontainer`. Until the gateway restarts, shells spawned by Thoth lack the new group: wrap docker/devcontainer calls with `sg docker -c '...'`.
 - **Reminders after 21 days** — jobs expire by repeat count; the tracker does not. Extend with one cron `update` if the habit is not yet automatic.
+
+---
+
+**Status:** Implementation complete (2026-09-02). All tasks done, 16 tests passing, clippy clean.
