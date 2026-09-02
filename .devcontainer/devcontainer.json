@@ -1,0 +1,16 @@
+{
+  "image": "mcr.microsoft.com/devcontainers/rust:1-bookworm",
+  "runArgs": ["--security-opt", "label=disable"],
+  "mounts": [
+    "source=${localEnv:HOME}/.hermes/secrets/tdee-age-key.txt,target=/home/vscode/.tdee-key,type=bind,readonly"
+  ],
+  "remoteEnv": {
+    "TDEE_KEY_FILE": "/home/vscode/.tdee-key"
+  },
+  "postCreateCommand": "cargo build",
+  "customizations": {
+    "vscode": {
+      "extensions": ["rust-lang.rust-analyzer"]
+    }
+  }
+}
